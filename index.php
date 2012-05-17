@@ -1,9 +1,9 @@
 <?
 //connect to database
-$req_db = ENV['REQ_DB'];
-$req_user = ENV['REQ_USER'];
-$req_pw = ENV['REQ_PW'];
-$req_table = ENV['REQ_TABLE'];
+$req_db = $_ENV['REQ_DB'];
+$req_user = $_ENV['REQ_USER'];
+$req_pw = $_ENV['REQ_PW'];
+$req_table = $_ENV['REQ_TABLE'];
 
 @$db = mysql_connect($req_db,$req_user,$req_pw);
 @$db_selected = mysql_select_db($req_table,$db);
