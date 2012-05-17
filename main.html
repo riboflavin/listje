@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <title>listje » <?php echo $title; ?></title>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17158679-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body>
+<script type="text/javascript" src="jquery-1.5.1.min.js"></script>
+<script type="text/javascript" src="jquery-ui-1.8.14.custom.min.js"></script>
+<!--<script type="text/javascript" src="jquery.cycle.min.js"></script>-->
+<script type="text/javascript" src="slists.js"></script>
+
+<?php
+if (strpos($_SERVER['HTTP_USER_AGENT'],"iPhone"))
+{echo '<link rel=stylesheet href="slists_i.css" type="text/css"/>
+       <meta name="viewport" content="width = 325"/>';}
+else
+{echo '<link rel=stylesheet href="slists.css" type="text/css"/>';}
+?>
+
+<p id="showingall" style="display: none;">true</p>
+
+<div id="helpdialog" style="width: 267px; position: absolute; top: 50px; left: 22px; background-color: white; border: 1px solid gray; font-size: 14px; display:none;">
+<img src="cross.png" style="margin-top: 5px; margin-right: 15px; vertical-align: bottom; float: right;" id="helpclose"/>
+<p style="font-family: 'Garamond', serif; float: left; margin-top: 5px; margin-left: 10px; font-weight: bold; letter-spacing: -1px;">Welcome to Listje!</p>
+<div style="margin: 5px;">
+<p style="font-family: 'Garamond', serif; float: left; margin-top: 0px; margin-bottom: 5px; line-height: 14px;">Listje makes it easy to create an interactive checklist you can access anywhere.</p>
+<p style="font-family: 'Garamond', serif; float: left; margin-top: 0px; margin-bottom: 5px; width: 150px; line-height: 14px;">
+Type some list items, one per row. For a header, add a dash (-) in front. When items are checked off, * will be added in the edit view.</p>
+<table style="font-size: 12px; border: 1px dotted gray; float: left; margin-left: 10px; width: 90px;">
+    <tr>
+        <td>
+        &#8209;Dairy
+        </td>
+        <td>
+        <b>Dairy</b>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        Milk
+        </td>
+        <td>
+        Milk
+        </td>
+    </tr>
+    <tr>
+        <td>
+        Eggs*
+        </td>
+        <td>
+        Eggs <img src="tick.png" style="vertical-align: bottom; margin-left: 1px;"/>
+        </td>
+    </tr>
+</table>
+<p style="font-family: 'Garamond', serif; float: left; margin-top: 0px; margin-bottom: 5px; width: 150px; line-height: 14px;">
+When you're done, hit "List" to convert to a checklist, and "Edit" to go back to edit view.</p>
+<div class="buttonholder normalbutton" style="float: left; margin-left: 24px;">
+<div class="appcommandbutton">
+<p class="appcommandtext" style="line-height: 30px; margin-top: 15px;">List »</p>
+</div>
+</div>
+<p style="font-family: 'Garamond', serif; float: left; margin-top: 0px; margin-bottom: 5px; width: 150px; line-height: 14px;">
+You can get to your list anytime using the address in your browser bar - make sure to save it!</p>
+<table style="font-size: 12px; border: 1px dotted gray; float: left; margin-left: 10px; width: 90px;">
+    <tr>
+        <td colspan="3">
+        <img src="address.png"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        <img src="disk.png" style="margin-left: 5px;"/>
+        </td>
+        <td></td>
+        <td>
+        Save
+        </td>
+    </tr>
+    <!--<tr>-->
+    <!--    <td>-->
+    <!--    <img src="email.png" style="margin-left: 5px;"/>-->
+    <!--    </td>-->
+    <!--    <td></td>-->
+    <!--    <td>-->
+    <!--    Email-->
+    <!--    </td>-->
+    <!--</tr>-->
+</table>
+</p>
+</div>
+</div>
+
+<div id="maincontainer">
+<div id="toolcontainer">
+
+<div class="buttonholder normalbutton" style="float: left;">
+<div class="appcommandbutton" onclick="toinput(); showinput();" id="prevbutton" style="display: none;">
+<p class="appcommandtext">« Edit</p>
+</div>
+</div>
+
+<div class="buttonholder normalbutton" style="float: left;">
+<div class="appcommandbutton" style="display: none;" onclick="tochecklist(); showchecklist();" id="nextbutton">
+<p class="appcommandtext">List »</p>
+</div>
+</div>
+
+<div class="buttonholder normalbutton" style="float: right;">
+<div class="appcommandbutton" id="helpbuttondiv" style="">
+<p class="appcommandtext"><img src="help.png" style="margin-bottom: -4px" id="helpbutton"/></p>
+<!--<p class="appcommandtext" id="savebutton">Help</p>-->
+</div>
+</div>
+
+<div class="buttonholder normalbutton" style="float: right;">
+<div class="appcommandbutton" id="savebuttondiv" style="">
+<p class="appcommandtext"><img src="disk.png" style="margin-bottom: -4px" id="savebutton"/></p>
+<!--<p class="appcommandtext" id="savebutton">Help</p>-->
+</div>
+</div>
+
+<!--<div class="buttonholder normalbutton" style="float: right;">-->
+<!--<div class="appcommandbutton" id="emailbuttondiv" style="">-->
+<!--<p class="appcommandtext"><img src="email.png" style="margin-top: 4px;" id="emailbutton"/></p>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="buttonholder normalbutton" style="float: right;">-->
+<!--<div class="appcommandbutton" id="savebuttondiv" style="display: none;">-->
+<!--<p class="appcommandtext" id="savebutton">Save</p>-->
+<!--</div>-->
+<!--</div>-->
+
+<div class="buttonholder widebutton" style="float: right;">
+<div class="appcommandbutton" onclick="togglecomplete();" id="hidebutton" style="display: none;">
+<p id="togcomptext" class="appcommandtext">Hide Checked</p>
+</div>
+</div>
+
+</div>
+
+<div id="listname" style="width: 300px; float: left;">
+    <p style="font-family: 'Garamond', sans-serif; font-size: 18px; margin-left: 0px; margin-bottom: 2px; margin-top: 20px; cursor: text; font-weight: bold; border: 1px solid gray; padding: 2px; width: 296px; display: none;" onclick="edittitle();" id="titletext"></p>
+    <input style="font-family: 'Garamond', sans-serif; font-size: 18px; margin-left: 0px; margin-bottom: 0px; cursor: text; font-weight: bold; width: 299px; margin-top: 22px; display: none; padding: 1px;" id="titleinput"></input>
+</div>
+
+<div id="error" onclick="errorack();" style="width: 300px; float: left; border: 1px solid gray; background-color: yellow; margin-top: 15px; display: none;">
+<p style="line-height: 14px; padding: 3px; margin: 0px;" class="appcommandtext">Sorry! There was an error saving your list. You might want to save it somewhere else for the time being. Please click here to continue.</p>
+</div>
+
+<div id="textcont">
+<textarea rows="60" cols="36" id="inputarea">
+</textarea>
+</div>
+
+<div id="tablecont">
+<table id="checklist_formatted" width=100%/>
+</div>
+
+<p id="credits" style="font-size: 10px; color: #222; margin-top: -4px; font-family: sans-serif; float: left;">Designed + programmed by Justin at <a href="http://justindunham.net">the Investment Baker</a></p>
+
+</div>
+</body>
+</html>

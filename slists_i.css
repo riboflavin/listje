@@ -1,0 +1,115 @@
+#maincontainer
+{
+width: 300px;
+}
+
+#toolcontainer
+{
+width: 300px;
+height: 30px;
+margin-bottom: 15px;
+float: left;
+}
+
+#textcont
+{
+width: 300px;
+float: left;
+margin-top: 15px;
+}
+
+#inputarea
+{
+width: 300px;
+height: 400px;
+overflow: scroll-y;
+font-family: 'Garamond', sans-serif;
+font-size: 22px; 
+}
+
+#checklist_formatted
+{
+table-layout: fixed;
+width: 100%;
+display: none;
+font-family: 'Garamond',
+sans-serif;
+line-height: 22px;
+font-size: 16px;    
+}
+
+#tablecont
+{
+width: 300px;
+float: left;
+margin-top: 15px;    
+}
+
+.normalbutton
+{
+width: 50px;
+}
+
+.widebutton
+{
+width: 100px;    
+}
+
+.appcommandbutton
+{
+color: #FFFFFF; 
+background: orange;
+background-image: url('http://listje.com/orangegrad_sm.jpg'); 
+background-repeat: repeat-x; 
+text-align: center; 
+-moz-border-radius: 5px; 
+-webkit-border-radius: 5px;
+margin-right: 1px;
+margin-left: 1px;
+}
+
+.appcommandtext
+{
+font-family: 'Garamond', sans-serif; 
+font-weight: bold; 
+font-size: 16px; 
+letter-spacing: -1px; 
+line-height: 40px;
+}
+
+.appinfobutton
+{
+background: #FFF;
+background-repeat: repeat-x; 
+text-align: center;
+border: 1px solid #BBB;
+height: 40px; 
+vertical-align: center;
+}
+
+.appinfotext
+{
+font-family: 'Garamond', sans-serif; 
+font-weight: bold; 
+font-size: 16px; 
+letter-spacing: -1px;
+vertical-align: center;
+color: #666;
+}
+
+.check_on
+{
+background-image: url('http://listje.com/tick.png');
+}
+
+.check_image
+{
+height: 16px;
+width: 16px;
+margin-left: 10px;
+}
+
+.headerrow
+{
+font-weight: bold;
+}
