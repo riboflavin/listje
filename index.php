@@ -7,7 +7,7 @@ $req_table = $_ENV['REQ_TABLE'];
 
 @$db = mysql_connect($req_db,$req_user,$req_pw);
 @$db_selected = mysql_select_db($req_table,$db);
-if (!($db && $db_selected)) {echo "Couldn't connect to database."; print_r($req_db); print_r($req_user); print_r($req_pw); print_r($req_table); die;}
+if (!($db && $db_selected)) {echo "Couldn't connect to database."; die;}
 //
 
 elseif (
