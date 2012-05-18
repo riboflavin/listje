@@ -36,14 +36,14 @@ $result = mysql_query($sql);
 $row = mysql_fetch_array($result);
 $sendtitle = str_replace(',','\&xc',$row['title']);
 $senditems = str_replace(',','\&xc',$row['items']);
-//echo "got,".$sendtitle.",".$senditems;
+echo "got,".$sendtitle.",".$senditems;
 }
 
 else
 {
 $sql = "UPDATE slists SET items='".$list_items."', title='".$title."' WHERE list_id = '".$list_id."'"; 
 $result = mysql_query($sql);
-//echo "saved,".$list_id;
+echo "saved,".$list_id;
 }
 
 mysql_close($db);
