@@ -5,7 +5,7 @@ getinput();
 $("#helpclose").bind('click',function() {helptog();});
 $("#helpbutton").bind('click',function() {helptog();});
 $("#savebutton").bind('click',function() {saveinput();});
-var imageArray = ['tick.png', 'spinner.gif', 'blueback.png', 'disk.png', 'help.png'];
+var imageArray = ['/images/tick.png', '/images/spinner.gif', '/images/blueback.png', '/images/disk.png', '/images/help.png'];
 var hidden = $('body').append('<div id="img-cache" style="display:none"/>').children('#img-cache');
 $.each(imageArray, function (i, val) {
   $('<img/>').attr('src', val).appendTo(hidden);
@@ -261,7 +261,7 @@ function saveinput()
 {
     if ($("#checklist_formatted").is(":visible")) {toinput();}
     entertitle();
-    $("#savebutton").attr("src","spinner.gif");
+    $("#savebutton").attr("src","/images/spinner.gif");
     //$("#savebutton").css("margin-top","12px");
     $("#savebutton").css("margin-bottom","-4px");
     $("#savebutton").css("margin-left","4px");
@@ -274,10 +274,10 @@ function saveinput()
           function(data) {
     if (data.split(',')[0] == "saved") {
        $("#savebutton").fadeOut("300", function() {
-       $("#savebutton").attr("src","tick.png");
+       $("#savebutton").attr("src","/images/tick.png");
        $("#savebutton").fadeIn("500", function() {
        $("#savebutton").fadeOut("500", function() {
-       $("#savebutton").attr("src","disk.png");
+       $("#savebutton").attr("src","/images/disk.png");
        //$("#savebutton").css("margin-top","4px");
        $("#savebutton").css("margin-bottom","-4px");
        $("#savebutton").css("margin-left","");
@@ -290,7 +290,7 @@ function saveinput()
     } else {
        $("#error").fadeIn();
        $("#savebutton").fadeOut("300", function() {
-       $("#savebutton").attr("src","error.png");
+       $("#savebutton").attr("src","/images/error.png");
        $("#savebutton").fadeIn("500");
        $("#savebutton").unbind('click');
                 });
