@@ -1,5 +1,4 @@
 Options -Indexes
-AddType text/javascript .js
 
 RewriteEngine on
 
