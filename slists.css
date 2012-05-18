@@ -39,7 +39,7 @@ overflow: scroll-y;
 font-family: 'Garamond', sans-serif;
 font-size: 18px;
 display: none;
-background-image: url("http://listje.com/blueback.png");
+background-image: url("http://listje.com/images/blueback.png");
 border: 1px solid gray;
 }
 
@@ -76,7 +76,7 @@ width: 100px;
 {
 color: #FFFFFF; 
 background: orange;
-background-image: url('http://listje.com/orangegrad_sm.jpg'); 
+background-image: url('http://listje.com/images/orangegrad_sm.jpg'); 
 background-repeat: repeat-x; 
 text-align: center; 
 -moz-border-radius: 5px; 
